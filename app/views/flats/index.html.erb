@@ -1,0 +1,7 @@
+<h1>Appartements à louer</h1>
+<ul>
+  <% @flats.each do |flat| %>
+  <li><%= link_to flat.name, flat_path(flat) %></li>
+  <% end %>
+</ul>
+<%= link_to "Créer un appartement", new_flat_path %>

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_03_27_084737) do
+ActiveRecord::Schema[7.0].define(version: 2023_03_27_103015) do
   create_table "bookings", force: :cascade do |t|
     t.integer "user_id", null: false
     t.integer "flat_id", null: false
@@ -25,10 +25,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_27_084737) do
     t.string "description"
     t.string "address"
     t.float "price"
-    t.integer "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_flats_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -40,5 +38,4 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_27_084737) do
 
   add_foreign_key "bookings", "flats"
   add_foreign_key "bookings", "users"
-  add_foreign_key "flats", "users"
 end
