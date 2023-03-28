@@ -2,6 +2,10 @@
 <p><%= @flat.description %></p>
 <p><%= @flat.address %></p>
 <p><%= @flat.price %></p>
+<p><%= link_to "réserver", new_flat_booking_path(@flat) %></p>
 <p><%= link_to "modifier l'appartement", edit_flat_path %></p>
 <p><%= link_to "supprimer l'appartement", flat_path, data: {turbo_method: :delete, turbo_confirm: 'Etes-vous sur ?'} %></p>
 <p><%= link_to "retour à la liste", flats_path %></p>
+<% @flat.bookings.each do |booking| %>
+<p><%= booking.check_in %> - <%= booking.check_out %> - <%= link_to "annuler réservation", booking_path(booking), data: {turbo_method: :delete, turbo_confirm: 'Etes-vous sur ?'} %></p>
+<% end %>
